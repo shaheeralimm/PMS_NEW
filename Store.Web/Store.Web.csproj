@@ -1099,6 +1099,7 @@
     <Content Include="Content\layout\dist\css\icons\weather-icons\sass\weather-icons.scss" />
     <Content Include="Views\Shared\_layoutLogin.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
