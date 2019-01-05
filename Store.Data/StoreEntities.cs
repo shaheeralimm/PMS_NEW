@@ -15,6 +15,7 @@ namespace Store.Data
 
         public DbSet<Gadget> Gadgets { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
         public virtual void Commit()
         {

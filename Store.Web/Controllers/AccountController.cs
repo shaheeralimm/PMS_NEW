@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,12 @@ namespace Store.Web.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly IApplicationUserService loginService;
+        public AccountController(IApplicationUserService loginService)
+        {
+            this.loginService = loginService;
+        }
+
         // GET: Account
         public ActionResult Index()
         {
