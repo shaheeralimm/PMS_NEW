@@ -23,6 +23,11 @@ namespace Store.Web.Mappings
                 .ForMember(g => g.Price, map => map.MapFrom(vm => vm.GadgetPrice))
                 .ForMember(g => g.Image, map => map.MapFrom(vm => vm.File.FileName))
                 .ForMember(g => g.CategoryID, map => map.MapFrom(vm => vm.GadgetCategory));
+
+            Mapper.CreateMap<RegisterFormViewModel, ApplicationUser>()
+               .ForMember(g => g.Email, map => map.MapFrom(vm => vm.Email))
+               .ForMember(g => g.HASH, map => map.MapFrom(vm => vm.HASH))
+               .ForMember(g => g.SALT, map => map.MapFrom(vm => vm.SALT));
         }
     }
 }

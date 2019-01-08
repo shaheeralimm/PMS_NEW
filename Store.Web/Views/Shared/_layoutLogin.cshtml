@@ -12,6 +12,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="~/Content/layout/assets/images/favicon.png">
     <title>PMS Admin - The Ultimate Solution For Project Management</title>
     <!-- Custom CSS -->
+    <link href="~/Content/layout/assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet" />
+    <link href="~/Content/layout/assets/libs/jquery-steps/steps.css" rel="stylesheet" />
     <link href="~/Content/layout/dist/css/style.min.css" rel="stylesheet">
     @Styles.Render("~/bootstrap/css")
 </head>
@@ -42,6 +44,8 @@
     @Scripts.Render("~/bootstrap/js")
     <!-- ============================================================== -->
     <!-- This page plugin js -->
+    <script src="~/Content/layout/assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
+    <script src="~/Content/layout/assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
     <!-- ============================================================== -->
     <script>
 
@@ -59,6 +63,18 @@
             $("#loginform").fadeIn();
         });
     </script>
+    <script>
+        // Basic Example with form
+    var form = $("#frmRegister");
+    form.validate({
+        errorPlacement: function errorPlacement(error, element) { element.before(error); },
+        rules: {
+            confirm: {
+                equalTo: "#Password"
+            }
+        }
+    });
+</script>
 
 </body>
 

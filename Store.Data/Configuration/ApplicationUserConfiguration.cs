@@ -16,7 +16,7 @@ namespace Store.Data.Configuration
             Property(g => g.Email).IsRequired();
             Property(g => g.HASH).IsRequired();
             Property(g => g.SALT).IsRequired();
-            Property(g => g.UserId).IsRequired();
+            Property(g => g.UserID).IsRequired();
         }
     }
 }

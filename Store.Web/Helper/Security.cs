@@ -9,15 +9,15 @@ namespace Store.Web.Helper
 {
     public class Security
     {
-        private static int saltLengthLimit = 32;
+        public static int saltLengthLimit = 32;
         #region --> Generate SALT Key
 
-        private static byte[] Get_SALT()
+        public static byte[] Get_SALT()
         {
             return Get_SALT(saltLengthLimit);
         }
 
-        private static byte[] Get_SALT(int maximumSaltLength)
+        public static byte[] Get_SALT(int maximumSaltLength)
         {
             var salt = new byte[maximumSaltLength];
             //Require NameSpace: using System.Security.Cryptography;

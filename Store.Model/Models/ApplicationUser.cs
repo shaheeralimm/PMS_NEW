@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,8 @@ namespace Store.Model
 {
     public class ApplicationUser
     {
-        public Guid UserId { get; set; }
+        [Key]
+        public Guid UserID { get; set; }
         public string Email { get; set; }
         public string HASH { get; set; }
         public byte[] SALT { get; set; }

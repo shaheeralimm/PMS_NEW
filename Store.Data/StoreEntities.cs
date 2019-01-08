@@ -26,6 +26,7 @@ namespace Store.Data
         {
             modelBuilder.Configurations.Add(new GadgetConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
+            modelBuilder.Configurations.Add(new ApplicationUserConfiguration());
         }
     }
 }

@@ -918,6 +918,7 @@
     <Compile Include="ViewModels\CategoryViewModel.cs" />
     <Compile Include="ViewModels\GadgetFormViewModel.cs" />
     <Compile Include="ViewModels\GadgetViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
