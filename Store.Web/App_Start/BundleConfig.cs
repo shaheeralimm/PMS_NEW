@@ -37,7 +37,9 @@ namespace Store.Web.App_Start
                 "~/Content/layout/assets/extra-libs/multicheck/multicheck.css",
                 "~/Content/layout/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css",
                 "~/Content/layout/assets/libs/toastr/build/toastr.min.css",
-                "~/Content/layout/assets/libs/magnific-popup/dist/magnific-popup.css"));
+                "~/Content/layout/assets/libs/magnific-popup/dist/magnific-popup.css",
+                "~/Content/layout/assets/libs/jquery-steps/jquery.steps.css",
+                "~/Content/layout/assets/libs/jquery-steps/steps.css"));
 
             BundleTable.EnableOptimizations = true;
         }

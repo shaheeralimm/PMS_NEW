@@ -18,20 +18,29 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-danger text-white" id="basic-addon1"><i class="ti-email"></i></span>
                         </div>
-                        @Html.TextBoxFor(s => s.Email, new { @class="form-control form-control-lg",@placeholder = "Email Address", required = "required" })
-                        @*<input type="text" id="Email" class="form-control form-control-lg" placeholder="Email Address" aria-label="Username" aria-describedby="basic-addon1" required>*@
+                        @Html.TextBoxFor(s => s.Email, new { @class = "required form-control", @placeholder = "Email Address", required = "required" })
+                        <div class="invalid-feedback">
+                            @Html.ValidationMessageFor(e => e.Email)
+                        </div>
+                       
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-warning text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                         </div>
-                        @Html.PasswordFor(s => s.Password, new { @class = "form-control form-control-lg", @placeholder = "Password", required = "required" })
+                        @Html.PasswordFor(s => s.Password, new { @class = "required form-control", @placeholder = "Password", required = "required" })
+                        <div class="invalid-feedback">
+                            @Html.ValidationMessageFor(e => e.Password)
+                        </div>
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-info text-white" id="basic-addon2"><i class="ti-pencil"></i></span>
                         </div>
-                        <input type="password" class="form-control form-control-lg" placeholder=" Confirm Password" aria-label="Password" aria-describedby="basic-addon1" required id="confirm">
+                        @Html.PasswordFor(s => s.ComparePassword, new { @class = "required form-control", @placeholder = "Password", required = "required" })
+                        <div class="invalid-feedback">
+                            @Html.ValidationMessageFor(e => e.ComparePassword)
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,4 +56,3 @@
         </form>
     </div>
 </div>
-

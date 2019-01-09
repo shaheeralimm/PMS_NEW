@@ -98,7 +98,7 @@ namespace Store.Web.Controllers
         [HttpPost]
         public ActionResult Register(RegisterFormViewModel newUser)
         {
-            if (newUser != null && newUser.Email != null)
+            if (ModelState.IsValid && newUser.Email != null)
             {
                 newUser.UserID = Guid.NewGuid();
                 newUser.SALT = Security.Get_SALT();
@@ -106,6 +106,10 @@ namespace Store.Web.Controllers
                 var user = Mapper.Map<RegisterFormViewModel, ApplicationUser>(newUser);
                 loginService.CreateUser(user);
                 loginService.SaveUser();
+            }
+            else
+            {
+                return View(newUser);
             }
             return RedirectToAction("Login");
         }
