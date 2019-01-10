@@ -55,6 +55,48 @@
                 return false;
             });
         },
+        /* on select */
+        CalendarApp.prototype.onSelect = function(start, end, allDay) {
+            var $this = this;
+            $this.$modal.modal({
+                backdrop: 'static'
+            });
+            var form = $("<form></form>");
+            form.append("<div class='row'></div>");
+            form.find(".row")
+                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Event Name</label><input class='form-control' placeholder='Insert Event Name' type='text' name='title'/></div></div>")
+                .append("<div class='col-md-6'><div class='form-group'><label class='control-label'>Category</label><select class='form-control' name='category'></select></div></div>")
+                .find("select[name='category']")
+                .append("<option value='bg-danger'>Danger</option>")
+                .append("<option value='bg-success'>Success</option>")
+                .append("<option value='bg-primary'>Primary</option>")
+                .append("<option value='bg-info'>Info</option>")
+                .append("<option value='bg-warning'>Warning</option></div></div>");
+            $this.$modal.find('.delete-event').hide().end().find('.save-event').show().end().find('.modal-body').empty().prepend(form).end().find('.save-event').unbind('click').click(function() {
+                form.submit();
+            });
+            $this.$modal.find('form').on('submit', function() {
+                var title = form.find("input[name='title']").val();
+                var beginning = form.find("input[name='beginning']").val();
+                var ending = form.find("input[name='ending']").val();
+                var categoryClass = form.find("select[name='category'] option:checked").val();
+                if (title !== null && title.length != 0) {
+                    $this.$calendarObj.fullCalendar('renderEvent', {
+                        title: title,
+                        start: start,
+                        end: end,
+                        allDay: false,
+                        className: categoryClass
+                    }, true);
+                    $this.$modal.modal('hide');
+                } else {
+                    alert('You have to give a title to your event');
+                }
+                return false;
+
+            });
+            $this.$calendarObj.fullCalendar('unselect');
+        },
         CalendarApp.prototype.enableDrag = function() {
             //init events
             $(this.$event).each(function() {
@@ -84,8 +126,44 @@
             var form = '';
             var today = new Date($.now());
 
-            var defaultEvents = [
-              
+            var defaultEvents = [{
+                    title: 'Meeting #3',
+                    start: new Date($.now() + 506800000),
+                    className: 'bg-info'
+                }, {
+                    title: 'Submission #1',
+                    start: today,
+                    end: today,
+                    className: 'bg-danger'
+                }, {
+                    title: 'Meetup #6',
+                    start: new Date($.now() + 848000000),
+                    className: 'bg-info'
+                }, {
+                    title: 'Seminar #4',
+                    start: new Date($.now() - 1099000000),
+                    end: new Date($.now() - 919000000),
+                    className: 'bg-warning'
+                }, {
+                    title: 'Event Conf.',
+                    start: new Date($.now() - 1199000000),
+                    end: new Date($.now() - 1199000000),
+                    className: 'bg-purple'
+                }, {
+                    title: 'Meeting #5',
+                    start: new Date($.now() - 399000000),
+                    end: new Date($.now() - 219000000),
+                    className: 'bg-info'
+                },
+                {
+                    title: 'Submission #2',
+                    start: new Date($.now() + 868000000),
+                    className: 'bg-danger'
+                }, {
+                    title: 'Seminar #5',
+                    start: new Date($.now() + 348000000),
+                    className: 'bg-success'
+                }
             ];
 
             var $this = this;
@@ -113,7 +191,16 @@
 
             });
 
-           
+            //on new event
+            this.$saveCategoryBtn.on('click', function() {
+                var categoryName = $this.$categoryForm.find("input[name='category-name']").val();
+                var categoryColor = $this.$categoryForm.find("select[name='category-color']").val();
+                if (categoryName !== null && categoryName.length != 0) {
+                    $this.$extEvents.append('<div class="calendar-events m-b-20" data-class="bg-' + categoryColor + '" style="position: relative;"><i class="fa fa-circle text-' + categoryColor + ' m-r-10" ></i>' + categoryName + '</div>')
+                    $this.enableDrag();
+                }
+
+            });
         },
 
         //init CalendarApp

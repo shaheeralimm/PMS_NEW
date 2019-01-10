@@ -3,9 +3,6 @@ $(function() {
 
     $(".preloader").fadeOut();
     // ============================================================== 
-    // Theme options
-    // ==============================================================     
-    // ============================================================== 
     // sidebar-hover
     // ==============================================================
 
@@ -21,11 +18,6 @@ $(function() {
     $(".nav-toggler").on('click', function() {
         $("#main-wrapper").toggleClass("show-sidebar");
         $(".nav-toggler i").toggleClass("ti-menu");
-    });
-    $(".nav-lock").on('click', function() {
-        $("body").toggleClass("lock-nav");
-        $(".nav-lock i").toggleClass("mdi-toggle-switch-off");
-        $("body, .page-wrapper").trigger("resize");
     });
     $(".search-box a, .search-box .app-search .srh-btn").on('click', function() {
         $(".app-search").toggle(200);
@@ -55,11 +47,11 @@ $(function() {
     //tooltip
     // ============================================================== 
     $(function() {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-    // ============================================================== 
-    //Popover
-    // ============================================================== 
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+        // ============================================================== 
+        //Popover
+        // ============================================================== 
     $(function() {
         $('[data-toggle="popover"]').popover()
     })
@@ -81,37 +73,59 @@ $(function() {
     // ============================================================== 
     $("body, .page-wrapper").trigger("resize");
     $(".page-wrapper").delay(20).show();
-    // ============================================================== 
-    // To do list
-    // ============================================================== 
-    $(".list-task li label").click(function() {
-        $(this).toggleClass("task-done");
-    });
 
-    //****************************
-    /* This is for the mini-sidebar if width is less then 1170*/
-    //**************************** 
-    var setsidebartype = function() {
-        var width = (window.innerWidth > 0) ? window.innerWidth : this.screen.width;
-        if (width < 1170) {
-            $("#main-wrapper").attr("data-sidebartype", "mini-sidebar");
-        } else {
-            $("#main-wrapper").attr("data-sidebartype", "full");
-        }
+    // ============================================================== 
+    // Collapsable cards
+    // ==============================================================
+    $('a[data-action="collapse"]').on('click', function(e) {
+        e.preventDefault();
+        $(this).closest('.card').find('[data-action="collapse"] i').toggleClass('ti-minus ti-plus');
+        $(this).closest('.card').children('.card-body').collapse('toggle');
+    });
+    // Toggle fullscreen
+    $('a[data-action="expand"]').on('click', function(e) {
+        e.preventDefault();
+        $(this).closest('.card').find('[data-action="expand"] i').toggleClass('mdi-arrow-expand mdi-arrow-compress');
+        $(this).closest('.card').toggleClass('card-fullscreen');
+    });
+    // Close Card
+    $('a[data-action="close"]').on('click', function() {
+        $(this).closest('.card').removeClass().slideUp('fast');
+    });
+    // ============================================================== 
+    // LThis is for mega menu
+    // ==============================================================
+    $(document).on('click', '.mega-dropdown', function(e) {
+        e.stopPropagation()
+    });
+    // ============================================================== 
+    // Last month earning
+    // ==============================================================
+    var sparklineLogin = function() {
+        $('.lastmonth').sparkline([6, 10, 9, 11, 9, 10, 12], {
+            type: 'bar',
+            height: '35',
+            barWidth: '4',
+            width: '100%',
+            resize: true,
+            barSpacing: '8',
+            barColor: '#2961ff'
+        });
+
     };
-    $(window).ready(setsidebartype);
-    $(window).on("resize", setsidebartype);
-    //****************************
-    /* This is for sidebartoggler*/
-    //****************************
-    $('.sidebartoggler').on("click", function() {
-        $("#main-wrapper").toggleClass("mini-sidebar");
-        if ($("#main-wrapper").hasClass("mini-sidebar")) {
-            $(".sidebartoggler").prop("checked", !0);
-            $("#main-wrapper").attr("data-sidebartype", "mini-sidebar");
-        } else {
-            $(".sidebartoggler").prop("checked", !1);
-            $("#main-wrapper").attr("data-sidebartype", "full");
-        }
+    var sparkResize;
+
+    $(window).resize(function(e) {
+        clearTimeout(sparkResize);
+        sparkResize = setTimeout(sparklineLogin, 500);
+    });
+    sparklineLogin();
+
+    // ============================================================== 
+    // This is for the innerleft sidebar
+    // ==============================================================
+    $(".show-left-part").on('click', function() {
+        $('.left-part').toggleClass('show-panel');
+        $('.show-left-part').toggleClass('ti-menu');
     });
 });

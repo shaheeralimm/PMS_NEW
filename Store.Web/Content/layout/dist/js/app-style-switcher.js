@@ -14,7 +14,7 @@ $(function() {
     /* Top navbar Theme Change function Start */
     //****************************
     function handlenavbarbg() {
-        if ( $('#main-wrapper').attr('data-navbarbg') == 'skin5' ) {
+        if ( $('#main-wrapper').attr('data-navbarbg') == 'skin6' ) {
                     // do this
                     $(".topbar .navbar").addClass('navbar-light');
                     $(".topbar .navbar").removeClass('navbar-dark');
@@ -26,7 +26,7 @@ $(function() {
             var navbarbgskin = $(this).attr("data-navbarbg");
             $('#main-wrapper').attr("data-navbarbg", navbarbgskin);
             $('.topbar .navbar-collapse').attr("data-navbarbg", navbarbgskin);
-            if ( $('#main-wrapper').attr('data-navbarbg') == 'skin5' ) {
+            if ( $('#main-wrapper').attr('data-navbarbg') == 'skin6' ) {
                     // do this
                     $(".topbar .navbar").addClass('navbar-light');
                     $(".topbar .navbar").removeClass('navbar-dark');

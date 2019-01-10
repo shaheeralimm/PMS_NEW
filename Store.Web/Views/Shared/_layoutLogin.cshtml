@@ -12,10 +12,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="~/Content/layout/assets/images/favicon.png">
     <title>PMS Admin - The Ultimate Solution For Project Management</title>
     <!-- Custom CSS -->
-    @*<link href="~/Content/layout/assets/libs/jquery-steps/jquery.steps.css" rel="stylesheet" />
-        <link href="~/Content/layout/assets/libs/jquery-steps/steps.css" rel="stylesheet" />*@
-    <link href="~/Content/layout/dist/css/style.min.css" rel="stylesheet">
     @Styles.Render("~/bootstrap/css")
+    <link href="~/Content/layout/dist/css/style.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,25 +28,23 @@
             </div>
         </div>
         <!-- ============================================================== -->
+        <!-- Preloader - style you can find in spinners.css -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
         <!-- Login box.scss -->
         <!-- ============================================================== -->
-        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center bg-dark">
-            <div class="auth-box bg-dark border-top border-secondary">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(../Content/layout/assets/images/big/auth-bg.jpg) no-repeat center center;">
+            <div class="auth-box">
                 @RenderBody()
             </div>
         </div>
     </div>
+
     <!-- ============================================================== -->
     <!-- All Required js -->
     <!-- ============================================================== -->
     @Scripts.Render("~/bootstrap/js")
-    <!-- ============================================================== -->
-    <!-- This page plugin js -->
-    <script src="~/Content/layout/assets/libs/jquery-steps/build/jquery.steps.min.js"></script>
-    <script src="~/Content/layout/assets/libs/jquery-validation/dist/jquery.validate.min.js"></script>
-    <!-- ============================================================== -->
     <script>
-
         $('[data-toggle="tooltip"]').tooltip();
         $(".preloader").fadeOut();
         // ==============================================================
@@ -58,24 +54,6 @@
             $("#loginform").slideUp();
             $("#recoverform").fadeIn();
         });
-        $('#to-login').click(function () {
-            $("#recoverform").hide();
-            $("#loginform").fadeIn();
-        });
     </script>
-    <script>
-        // Basic Example with form
-        var form = $("#frmRegister");
-        form.validate({
-            errorPlacement: function errorPlacement(error, element) { element.before(error); },
-            rules: {
-                confirm: {
-                    equalTo: "#Password"
-                }
-            }
-        });
-    </script>
-
 </body>
-
 </html>

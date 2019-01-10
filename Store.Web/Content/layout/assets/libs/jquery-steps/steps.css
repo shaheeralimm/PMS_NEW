@@ -1,5 +1,5 @@
 /*
-Template Name: Matrix Admin
+Template Name: Monster Admin
 Author: Themedesigner
 Email: niravjoshi87@gmail.com
 File: css
@@ -35,7 +35,7 @@ File: css
 .wizard-content  .wizard > .steps .current a, .wizard-content .wizard > .actions a,.wizard-content .wizard > .actions a:hover, 
 .wizard-content .wizard > .steps .disabled a, .wizard-content .wizard > .steps .disabled a:hover, .wizard-content .wizard > .steps .disabled a:active,
 .wizard-content .wizard > .content,.wizard-content .wizard > .steps .done a, .wizard-content .wizard > .steps .done a:hover, .wizard-content .wizard > .steps .done a:active{
-    /*background: transparent;*/
+    background: transparent;
 }
 .wizard-content .wizard > .steps > ul > li,.wizard-content .wizard > .actions > ul > li{
     float:none;
@@ -59,8 +59,8 @@ File: css
 
 .wizard-content .wizard>.steps>ul>li a {
     position: relative;
-    /*padding-top: 52px;
-    margin-top: 20px;*/
+    padding-top: 52px;
+    margin-top: 20px;
     margin-bottom: 20px;
     display: block
 }
@@ -79,8 +79,8 @@ File: css
 }
 
 .wizard-content .wizard>.steps>ul>li.current>a {
-    /*color: #2f3d4a;
-    cursor: default*/
+    color: #2f3d4a;
+    cursor: default
 }
 
 .wizard-content .wizard>.steps>ul>li.current .step {
@@ -105,7 +105,7 @@ File: css
 .wizard-content .wizard>.steps>ul>li.done .step {
     background-color: #2962FF ;
     border-color: #2962FF ;
-    color: #fff !important;
+    color: #fff
 }
 
 .wizard-content .wizard>.steps>ul>li.error .step {
@@ -138,7 +138,7 @@ File: css
 }
 
 .wizard-content .wizard>.content>.body {
-   /* padding: 0 20px*/
+    padding: 0 20px
 }
 
 .wizard-content .wizard>.content>iframe {
@@ -151,15 +151,14 @@ File: css
     position: relative;
     display: block;
     text-align: right;
-   /* padding: 0 20px 20px*/
-   margin-top: 20px;
+    padding: 0 20px 20px
 }
 
 .wizard-content .wizard>.actions>ul {
     float: right;
     list-style: none;
     padding: 0;
-    margin: 0,
+    margin: 0
 }
 
 .wizard-content .wizard>.actions>ul:after {
