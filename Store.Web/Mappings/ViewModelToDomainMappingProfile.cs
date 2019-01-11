@@ -28,6 +28,13 @@ namespace Store.Web.Mappings
                .ForMember(g => g.Email, map => map.MapFrom(vm => vm.Email))
                .ForMember(g => g.HASH, map => map.MapFrom(vm => vm.HASH))
                .ForMember(g => g.SALT, map => map.MapFrom(vm => vm.SALT));
+
+            Mapper.CreateMap<UserprofileViewModel, Userdetail>()
+              .ForMember(g => g.FullName, map => map.MapFrom(vm => vm.UserName))
+              .ForMember(g => g.Mobile, map => map.MapFrom(vm => vm.UserMobile))
+              .ForMember(g => g.DOB, map => map.MapFrom(vm => vm.UserDOB))
+              .ForMember(g => g.Location, map => map.MapFrom(vm => vm.UserLocation))
+              .ForMember(g => g.Images, map => map.MapFrom(vm => vm.File.FileName));
         }
     }
 }

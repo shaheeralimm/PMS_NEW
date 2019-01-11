@@ -44,6 +44,7 @@
     <!-- All Required js -->
     <!-- ============================================================== -->
     @Scripts.Render("~/bootstrap/js")
+    @Scripts.Render("~/bundles/jqueryval")
     <script>
         $('[data-toggle="tooltip"]').tooltip();
         $(".preloader").fadeOut();
@@ -54,6 +55,13 @@
             $("#loginform").slideUp();
             $("#recoverform").fadeIn();
         });
+    </script>
+    <script>
+        ! function (window, document, $) {
+            "use strict";
+            $("input,select,textarea").not("[type=submit]").jqBootstrapValidation();
+        }(window, document, jQuery);
+
     </script>
 </body>
 </html>

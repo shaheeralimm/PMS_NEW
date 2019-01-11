@@ -16,6 +16,7 @@ namespace Store.Data
         public DbSet<Gadget> Gadgets { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Userdetail> Userdetails { get; set; }
 
         public virtual void Commit()
         {
@@ -27,6 +28,7 @@ namespace Store.Data
             modelBuilder.Configurations.Add(new GadgetConfiguration());
             modelBuilder.Configurations.Add(new CategoryConfiguration());
             modelBuilder.Configurations.Add(new ApplicationUserConfiguration());
+            modelBuilder.Configurations.Add(new UserConfiguration());
         }
     }
 }

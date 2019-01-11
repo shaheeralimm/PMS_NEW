@@ -4409,6 +4409,14 @@
     <Content Include="images\ulefone.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\site.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-1.8.0.intellisense.js" />
+    <Content Include="Scripts\jquery-1.8.0.js" />
+    <Content Include="Scripts\jquery-1.8.0.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -4417,6 +4425,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -4430,6 +4439,7 @@
     <Compile Include="ViewModels\GadgetViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\RegisterFormViewModel.cs" />
+    <Compile Include="ViewModels\UserprofileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -4681,6 +4691,7 @@
     <Content Include="Content\layout\dist\js\pages\forms\typeahead\nfl.json" />
     <Content Include="Content\layout\dist\js\pages\forms\typeahead\nhl.json" />
     <Content Include="Content\layout\dist\js\pages\forms\typeahead\typeahead.js.jquery.json" />
+    <Content Include="Views\Users\Profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

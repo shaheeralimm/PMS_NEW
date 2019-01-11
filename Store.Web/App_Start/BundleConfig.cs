@@ -46,6 +46,10 @@ namespace Store.Web.App_Start
                 "~/Content/layout/assets/extra-libs/jquery.repeater/dff.js"
               ));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.validate.js",
+                        "~/Scripts/jquery.validate.unobtrusive.js"));
+
             bundles.Add(new StyleBundle("~/bootstrap/css").Include(
                 "~/Content/layout/assets/libs/toastr/build/toastr.min.css",
                 "~/Content/layout/assets/libs/sweetalert2/dist/sweetalert2.min.css",
